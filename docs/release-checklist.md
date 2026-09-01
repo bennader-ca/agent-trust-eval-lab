@@ -22,11 +22,12 @@ The local repository can become a public v0.1 after the external gates below are
 
 ## Required before GitHub publication
 
-- [x] Ben creates the GitHub account `bennader-ca`; confirm 2FA or a passkey before release.
+- [x] Ben creates the GitHub account `bennader-ca`.
+- [ ] Confirm 2FA or a passkey is enabled before release.
 - [x] Repository owner and slug selected: `bennader-ca/agent-trust-eval-lab`.
 - [x] Add the final repository URLs to `pyproject.toml`.
-- [ ] Initialize the first reviewed commit and confirm the public file inventory.
-- [ ] Create the public repository only after Ben approves the name, description, and visibility.
+- [x] Initialize the first reviewed commit and confirm the 65-file public inventory.
+- [x] Create the approved public repository with the agreed name, description, and visibility.
 - [ ] Push, confirm GitHub Actions passes, and create the `v0.1.0` release tag only after review.
 
 ## Required before publishing model findings
