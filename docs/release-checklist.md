@@ -28,7 +28,7 @@ The local repository can become a public v0.1 after the external gates below are
 - [x] Add the final repository URLs to `pyproject.toml`.
 - [x] Initialize the first reviewed commit and confirm the 65-file public inventory.
 - [x] Create the approved public repository with the agreed name, description, and visibility.
-- [ ] Push, confirm GitHub Actions passes, and create the `v0.1.0` release tag only after review.
+- [x] Push, confirm all three GitHub Actions matrix jobs pass, and publish the `v0.1.0` release tag.
 
 ## Required before publishing model findings
 
@@ -47,7 +47,7 @@ The local repository can become a public v0.1 after the external gates below are
 ## Required before LinkedIn publication
 
 - [ ] Ben reviews and approves the final post.
-- [ ] The GitHub URL and public release are live.
+- [x] The GitHub URL and public release are live.
 - [ ] Every numeric claim matches a published sanitized report.
 - [ ] The post acknowledges prior art and describes the narrower contribution.
 - [ ] The contributor invitation names specific useful next steps.
