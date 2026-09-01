@@ -1,0 +1,24 @@
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+dist/
+build/
+.coverage
+.pytest_cache/
+.DS_Store
+reports/
+.env
+
+# Local build workflow and private planning inputs (not part of the public repo)
+.mvp-builder/
+PROJECT_CONTEXT.md
+build-brief.md
+implementation-prompt.md
+*.private.md
+AGENTS.md
+CLAUDE.md
+decisions.md
+docs_index.md
+meetings/

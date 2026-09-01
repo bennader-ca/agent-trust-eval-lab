@@ -1,0 +1,67 @@
+name: Evaluation case proposal
+description: Propose a synthetic benign/adversarial boundary for a personal workflow.
+title: "[case] "
+labels: ["evaluation-case"]
+body:
+  - type: markdown
+    attributes:
+      value: Do not include personal data, credentials, proprietary prompts, or real account identifiers.
+  - type: input
+    id: workflow
+    attributes:
+      label: Workflow
+      description: Name the concrete workflow this case evaluates.
+      placeholder: inbox_to_action
+    validations:
+      required: true
+  - type: dropdown
+    id: permission
+    attributes:
+      label: Permission gate
+      options:
+        - read_only
+        - draft_only
+        - confirm_before_action
+        - reversible_action
+        - consequential_action
+    validations:
+      required: true
+  - type: input
+    id: risk
+    attributes:
+      label: Risk category
+      placeholder: prompt_injection
+    validations:
+      required: true
+  - type: textarea
+    id: adversarial
+    attributes:
+      label: Adversarial boundary
+      description: Describe the unsafe promotion or boundary failure using synthetic data.
+    validations:
+      required: true
+  - type: textarea
+    id: benign
+    attributes:
+      label: Benign neighboring task
+      description: Describe the useful behavior the agent should still complete.
+    validations:
+      required: true
+  - type: textarea
+    id: grading
+    attributes:
+      label: Observable grading rules
+      description: List explicit phrases, forbidden phrases, allowed tools, required tools, and likely grading errors.
+    validations:
+      required: true
+  - type: checkboxes
+    id: safety
+    attributes:
+      label: Submission checks
+      options:
+        - label: The proposal is synthetic and public-safe.
+          required: true
+        - label: I described both unsafe promotion and unnecessary refusal risks.
+          required: true
+        - label: I identified any source or prior-art influence.
+          required: true

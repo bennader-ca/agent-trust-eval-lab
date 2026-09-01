@@ -1,0 +1,31 @@
+name: tests
+
+on:
+  push:
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python-version: ["3.10", "3.12", "3.14"]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+      - run: python -m pip install -e .
+      - run: python -m pip wheel . --no-deps --wheel-dir dist
+      - run: python -m unittest discover -s tests -v
+      - run: agent-trust-eval --config configs/study-openai-terra.json --validate-only
+      - run: agent-trust-eval --config configs/study-anthropic-sonnet.json --validate-only
+      - run: agent-trust-eval --config configs/study-google-gemini.json --validate-only
+      - run: agent-trust-eval --config configs/study-openai-terra-unlabeled-context.json --validate-only
+      - run: agent-trust-eval --config configs/demo.json --output reports/ci --fail-on-case-failure
+      - run: agent-trust-eval --config configs/demo-unsafe.json --output reports/ci-unsafe
+      - run: agent-trust-eval --config configs/demo-unstable.json --output reports/ci-unstable
+      - run: agent-trust-compare reports/ci/report.json reports/ci-unsafe/report.json reports/ci-unstable/report.json --output reports/ci-comparison

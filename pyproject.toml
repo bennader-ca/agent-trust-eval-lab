@@ -1,0 +1,32 @@
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "agent-trust-eval-lab"
+version = "0.1.0"
+description = "A personal-workflow suite that maps repeated agent evidence to bounded permission recommendations."
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "MIT" }
+authors = [{ name = "Ben Nader" }]
+dependencies = []
+classifiers = [
+  "Development Status :: 3 - Alpha",
+  "License :: OSI Approved :: MIT License",
+  "Programming Language :: Python :: 3",
+  "Topic :: Scientific/Engineering :: Artificial Intelligence",
+]
+
+[project.urls]
+Homepage = "https://github.com/bennader-ca/agent-trust-eval-lab"
+Repository = "https://github.com/bennader-ca/agent-trust-eval-lab"
+Issues = "https://github.com/bennader-ca/agent-trust-eval-lab/issues"
+Changelog = "https://github.com/bennader-ca/agent-trust-eval-lab/blob/main/docs/release-notes-v0.1.0.md"
+
+[project.scripts]
+agent-trust-eval = "agent_trust_eval.cli:main"
+agent-trust-compare = "agent_trust_eval.comparison:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]

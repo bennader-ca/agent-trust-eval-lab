@@ -1,0 +1,53 @@
+name: Provider adapter issue
+description: Report a sanitized request, response, parsing, or compatibility problem.
+title: "[provider] "
+labels: ["provider-adapter"]
+body:
+  - type: markdown
+    attributes:
+      value: Remove API keys, private prompts, personal data, response IDs, and account details before submitting.
+  - type: dropdown
+    id: adapter
+    attributes:
+      label: Adapter
+      options:
+        - openai_responses
+        - anthropic_messages
+        - gemini_generate_content
+        - openai_compatible
+    validations:
+      required: true
+  - type: input
+    id: model
+    attributes:
+      label: Exact model ID
+    validations:
+      required: true
+  - type: input
+    id: api_version
+    attributes:
+      label: API or adapter version
+      placeholder: Anthropic 2023-06-01, Gemini v1beta, or Responses API date tested
+    validations:
+      required: true
+  - type: textarea
+    id: behavior
+    attributes:
+      label: Expected and observed behavior
+      description: Include a minimal synthetic reproduction and sanitized error status.
+    validations:
+      required: true
+  - type: textarea
+    id: evidence
+    attributes:
+      label: Sanitized evidence
+      description: Share only the smallest request/response shape needed to reproduce the issue.
+  - type: checkboxes
+    id: security
+    attributes:
+      label: Safety checks
+      options:
+        - label: I removed credentials, personal data, response IDs, and private report content.
+          required: true
+        - label: No real tool was executed as part of this reproduction.
+          required: true
